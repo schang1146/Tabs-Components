@@ -23,8 +23,9 @@ class Dropdown {
 
     // Create timeline with GSAP
     if (!this.tl) {
-      this.tl = new TweenMax(this.content);
-      this.tl = TweenMax.to(this.content, 1, {className: "-=dropdown-hidden"});
+      this.tl = new TimelineLite(this.content);
+      this.tl.to(this.content, 1, {className: "-=dropdown-hidden"})
+      this.tl.fromTo(this.content.children, 1, {opacity :0}, {opacity: 1}, '-=1');
     }
     
     // Sliding dropdown menu with GSAP
